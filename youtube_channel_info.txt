@@ -2,8 +2,8 @@
 ~~ FORMAT: <channel name> | <group name> | <logo> | <tvg-id>
 
 
-Ekattor TV Live | Bangla | https://upload.wikimedia.org/wikipedia/en/thumb/5/57/Ekattor_TV_logo.svg/190px-Ekattor_TV_logo.svg.png |
-https://www.youtube.com/channel/UC0ThmWmb7WQATrrDMLQph7Q/live
+Love Naturw | mexico | https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcoOUNMC8d8La9ozeRz9cmmD2-UF_2vl7cP85WpAwGV9BZQHQOEpxNRws&s=10 |
+https://www.youtube.com/live/7iSlC_1wOVQ?si=CbsxFT7G_VKNo3SQ
 
 Gazi TV Live | Bangla | https://upload.wikimedia.org/wikipedia/en/thumb/2/20/GTVBangladeshLogo.png/220px-GTVBangladeshLogo.png |
 https://www.youtube.com/channel/UCXuHIkEezOy_b1pnkN0-TIg/live
