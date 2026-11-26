@@ -40,10 +40,10 @@ jobs:
           pip install -U yt-dlp
           
       - name: Main
+        shell: pwsh
         run: |
-          pwd
-          chmod +x autorun.sh
-          ./autorun.sh
+          pip install requests yt-dlp
+          python scripts/youtube_m3ugrabber.py > youtube.m3u
 
       - name: git add
         run: |
