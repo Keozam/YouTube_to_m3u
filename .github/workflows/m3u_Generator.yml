@@ -47,13 +47,15 @@ jobs:
           python youtube_m3ugrabber.py > ../youtube.m3u
 
       - name: git add
+        shell: pwsh
         run: |
           git add -A
-          ls -la
 
       - name: commit & push
+        shell: pwsh
         run: |
           git add -A
-          git diff --cached --quiet || git commit -m "links are updated"
+          git diff --cached --quiet
+          if ($LASTEXITCODE -ne 0) { git commit -m "Links are updated" }
           git pull --rebase
           git push
