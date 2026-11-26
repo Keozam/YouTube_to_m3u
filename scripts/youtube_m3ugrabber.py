@@ -26,7 +26,6 @@ def grab(url):
         try:
             result = subprocess.run(
                 ["yt-dlp", "-g", "--no-warnings",
-                 "--impersonate", "chrome",
                  "--extractor-args", f"youtube:player_client={client}",
                  url],
                 capture_output=True, text=True, timeout=12
