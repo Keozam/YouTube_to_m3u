@@ -10,10 +10,6 @@ on:
   schedule:
     - cron: '0 * * * *'
 
-  pull_request:
-    branches:
-      - main
-
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -52,5 +48,7 @@ jobs:
 
       - name: commit & push
         run: |
-          git commit -m "links are updated"
-          git push -f
+          git add -A
+          git diff --cached --quiet || git commit -m "links are updated"
+          git pull --rebase
+          git push
