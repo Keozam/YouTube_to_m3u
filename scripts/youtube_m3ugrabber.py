@@ -22,13 +22,14 @@ if 'win' in sys.platform:
 
 def grab(url):
     import subprocess, sys
-    for client in ["android", "ios", "tv", "web"]:
+    for client in ["tv", "android"]:
         try:
             result = subprocess.run(
                 ["yt-dlp", "-g", "--no-warnings",
+                 "--impersonate", "chrome",
                  "--extractor-args", f"youtube:player_client={client}",
                  url],
-                capture_output=True, text=True, timeout=40
+                capture_output=True, text=True, timeout=12
             )
             link = result.stdout.strip().splitlines()
             if link and link[0].startswith("http"):
