@@ -21,19 +21,23 @@ if 'win' in sys.platform:
     windows = True
 
 def grab(url):
-    import subprocess
-    try:
-        result = subprocess.run(
-            ["yt-dlp", "-g", "-f", "best[ext=m3u8]/best", url],
-            capture_output=True, text=True, timeout=30
-        )
-        link = result.stdout.strip().splitlines()
-        if link and link[0].startswith("http"):
-            print(link[0])
-            return
-    except Exception as e:
-        print(f"# ERROR grab {url}: {e}")
-    # Fallback si yt-dlp falla
+    import subprocess, sys
+    for client in ["android", "ios", "tv", "web"]:
+        try:
+            result = subprocess.run(
+                ["yt-dlp", "-g", "--no-warnings",
+                 "--extractor-args", f"youtube:player_client={client}",
+                 url],
+                capture_output=True, text=True, timeout=40
+            )
+            link = result.stdout.strip().splitlines()
+            if link and link[0].startswith("http"):
+                print(link[0])
+                return
+            else:
+                print(f"# FALLO {client}: {result.stderr.strip()[:200]}", file=sys.stderr)
+        except Exception as e:
+            print(f"# ERROR {client}: {e}", file=sys.stderr)
     print('https://raw.githubusercontent.com/Keozam/YouTube_to_m3u/main/assets/moose_na.m3u')
     return
 print('#EXTM3U x-tvg-url="https://github.com/botallen/epg/releases/download/latest/epg.xml"')
